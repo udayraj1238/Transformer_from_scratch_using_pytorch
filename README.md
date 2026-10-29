@@ -124,7 +124,9 @@ prevention
 | Layer Normalization | Pre/post-norm variants | ✅ |
 | Feed-Forward Network | 2-layer MLP + ReLU | ✅ |
 | Encoder-Decoder Stack | Complete seq2seq architecture | ✅ |
-| Training Loop | Full training pipeline | ✅ |
+| Training Loop | Adam + label smoothing (0.1), TensorBoard logging | ✅ |
+| Decoding | Greedy and beam search with length normalisation | ✅ |
+| Tests | `pytest` shape, mask and decoding checks on CPU | ✅ |
 
 </details>
 
@@ -137,7 +139,9 @@ prevention
 ```bash
 git clone https://github.com/udayraj1238/Transformer_from_scratch_using_pytorch.git
 cd Transformer_from_scratch_using_pytorch
-pip install torch torchvision
+pip install -r requirements.txt
+python -m pytest -q                     # quick CPU checks
+cd Transformer_from_scratch_using_pytorch && python train.py   # trains EN->IT on opus_books
 ```
 
 ---
